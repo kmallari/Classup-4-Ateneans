@@ -8,9 +8,9 @@ include("connect.php");
 $id = $_POST['ID'];
 $name = $_POST['full-name'];
 
-$insert = mysqli_query($conn, "INSERT INTO `student`(`idStudent`,`nameStudent`) VALUES ('$id', '$name')");
+$sql = "INSERT INTO student (idStudent,nameStudent) VALUES ('$id', '$name')";
 
-if($conn->query($insert) == TRUE)
+if($conn->query($sql) == TRUE)
 {
     http_response_code(200);
     echo json_encode(array("message" => "Added student " . $name . " with ID " . $id . " to database"));
