@@ -1,6 +1,5 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 
 include("connect.php");
@@ -14,6 +13,7 @@ if($conn->query($sql) == TRUE)
 {
     http_response_code(200);
     echo json_encode(array("message" => "Enrolled student " . $id));
+    echo "<p>Redirecting back to home page...</p>";
 }
 else
 {
@@ -24,3 +24,7 @@ else
 $conn->close();
 
 ?>
+
+<head>
+  	<meta http-equiv="refresh" content="5;URL=http://localhost/Classup-4-Ateneans/index.php">
+</head>

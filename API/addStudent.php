@@ -17,8 +17,13 @@ if(isset($_POST['submit']))
     else
     {
         echo "Records added successfully.";
+        echo "<p>Redirecting back to home page...</p>";
     }
 }
 $conn->close();
 
 ?>
+
+<head>
+  	<meta http-equiv="refresh" content="5;URL=http://localhost/Classup-4-Ateneans/index.php">
+</head>
