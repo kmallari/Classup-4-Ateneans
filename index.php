@@ -1,20 +1,26 @@
 <html lang="en">
+
+<?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
+include("API/connect.php");
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <title>ClassADMU</title>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5 ">
-        <a class="navbar-brand" href="#">ClassADMU</a>
+        <a class="navbar-brand" href="index.php">ClassADMU</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -35,6 +41,7 @@
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li> -->
           </ul>
+          <a href="register.php"><button type="button" class="btn btn-light" id="register">Register</button></a>   
           <a href="https://canvas.ateneo.edu" class="btn btn-outline-light my-2 my-lg-0" role="button">Go to Canvas</a>
         </div>
       </nav>
@@ -55,8 +62,7 @@
             {
               while($row = $result->fetch_assoc())
               {
-                // echo "";
-                echo "<option> 'Hello' </option>";
+                echo "<option>" . $row['codeClass'] . $row['sectionClass'] . "</option>";
               }
             }
             else
@@ -77,3 +83,5 @@
     <!-- DO NOT TOUCH THE SCRIPT FILES ABOVE THIS LINE -->
 </body>
 </html>
+
+<?php $conn->close();?>

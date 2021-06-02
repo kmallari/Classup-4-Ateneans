@@ -5,12 +5,12 @@ header("Access-Control-Allow-Methods: POST");
 
 include("connect.php");
 
-$id = (isset($_GET['id']) ? $_GET['id'] : "");
-$name = (isset($_GET['name']) ? $_GET['name'] : "");
+$id = $_POST['ID'];
+$name = $_POST['full-name'];
 
-$sql = "INSERT INTO student (idStudent, nameStudent) VALUES ($id, $name)";
+$insert = mysqli_query($conn, "INSERT INTO `student`(`idStudent`,`nameStudent`) VALUES ('$id', '$name')");
 
-if($conn->query($sql) == TRUE)
+if($conn->query($insert) == TRUE)
 {
     http_response_code(200);
     echo json_encode(array("message" => "Added student " . $name . " with ID " . $id . " to database"));
