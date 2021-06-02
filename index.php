@@ -7,6 +7,7 @@ include("API/connect.php");
 ?>
 
 <head>
+    <?php include("API/connect.php"); ?> <!-- might remove or relocate-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,52 +18,57 @@ include("API/connect.php");
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5 ">
-        <a class="navbar-brand" href="index.php">ClassADMU</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My schedules
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Primary Schedule</a>
-                <a class="dropdown-item" href="#">Seconday Schedule</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">View all schedules</a>
-              </div>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
-          </ul>
-          <a href="register.html"><button type="button" class="btn btn-light" id="register">Register</button></a>   
-          <a href="https://canvas.ateneo.edu" class="btn btn-outline-light my-2 my-lg-0" role="button">Go to Canvas</a>
-        </div>
-      </nav>
+      <a class="navbar-brand" href="index.php">ClassADMU</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My schedules
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Primary Schedule</a>
+              <a class="dropdown-item" href="#">Seconday Schedule</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">View all schedules</a>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+        <a href="register.php"><button type="button" class="btn btn-light" id="register">Register</button></a>   
+        <a href="https://canvas.ateneo.edu" class="btn btn-outline-light my-2 my-lg-0" role="button">Go to Canvas</a>
+      </div>
+    </nav>
 
     <div class="p-5">
         <h1 class="display-3">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
+        <form action="API/enrollClass.php" method="POST" role="form" class="form-group">
         <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="classSelect">Class</label>
         </div>
-        <select class="custom-select" id="classSelect">
+        <select class="custom-select" id="classSelect" name="class">
           <option selected>Choose...</option>
-          <?php 
+          <?php
             $sql = "SELECT * FROM classes";
             $result = $conn->query($sql);
             if ($result->num_rows > 0)
             {
               while($row = $result->fetch_assoc())
               {
+<<<<<<< HEAD
                 echo "<option>" . $row['codeClass'] . $row['sectionClass'] . "</option>";
+=======
+                echo '<option value="' . $row["idClasses"] . '">' . $row['codeClass'] . $row['sectionClass'] . '</option>';
+>>>>>>> master
               }
             }
             else
@@ -71,7 +77,12 @@ include("API/connect.php");
             }
           ?>
         </select>
-      </div>
+        </div>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Student Number" aria-label="Student Number" name="id">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         <p>Can't find your class in the link? Input it below.</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Get started</a>
     </div>    
