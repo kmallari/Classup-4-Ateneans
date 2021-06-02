@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    <?php include("API/connect.php"); ?> <!-- might remove or relocate-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,21 +43,21 @@
     <div class="p-5">
         <h1 class="display-3">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
+        <form action="API/enrollClass.php" method="POST" role="form" class="form-group">
         <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="classSelect">Class</label>
         </div>
-        <select class="custom-select" id="classSelect">
+        <select class="custom-select" id="classSelect" name="class">
           <option selected>Choose...</option>
-          <?php 
+          <?php
             $sql = "SELECT * FROM classes";
             $result = $conn->query($sql);
             if ($result->num_rows > 0)
             {
               while($row = $result->fetch_assoc())
               {
-                // echo "";
-                echo "<option>" . $row['codeClass'] . $row['sectionClass'] . "</option>";
+                echo '<option value="' . $row["idClasses"] . '">' . $row['codeClass'] . $row['sectionClass'] . '</option>';
               }
             }
             else
@@ -65,7 +66,12 @@
             }
           ?>
         </select>
-      </div>
+        </div>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Student Number" aria-label="Student Number" name="id">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         <p>Can't find your class in the link? Input it below.</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Get started</a>
     </div>    
@@ -77,3 +83,5 @@
     <!-- DO NOT TOUCH THE SCRIPT FILES ABOVE THIS LINE -->
 </body>
 </html>
+
+<?php $conn->close();?>
