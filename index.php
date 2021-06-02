@@ -64,11 +64,7 @@ include("API/connect.php");
             {
               while($row = $result->fetch_assoc())
               {
-<<<<<<< HEAD
-                echo "<option>" . $row['codeClass'] . $row['sectionClass'] . "</option>";
-=======
                 echo '<option value="' . $row["idClasses"] . '">' . $row['codeClass'] . $row['sectionClass'] . '</option>';
->>>>>>> master
               }
             }
             else
