@@ -45,19 +45,69 @@ include("API/connect.php");
       </div>
     </nav>
   
+    <div class="p-5">
+        <h3 class="display-3">Add your class!</h3>
+        <p class="lead"> Insert the necessary information below</p>
+        <form action="API/addClasses.php" method="POST" role="form" class="form-group">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="classCode">Class Code</label>
+            </div>
+            <input type="text"class="form-control" placeholder="ENGG38" id="classCode" name="code">
+            </div>
 
-  <form id="reg-form" action="API/addStudent.php" method="POST" role="form">
-    <div class="form-group">
-      <label for="id-number">ID Number</label>
-      <input type="text" class="form-control" name="ID" placeholder="185134" Required>
-    </div>
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" name="full-name" placeholder="Ignacio de Loyola" Required>
-    </div>
-    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-  </form>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="classSection">Class Section</label>
+            </div>
+            <input type="text" class="form-control" placeholder="A" id="classSection" name="section">
+            </div>
 
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="className">Class Name</label>
+            </div>
+            <input type="text" class="form-control" placeholder="Software Development" id="className" name="name">
+            </div>
+
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="classUnits">Units</label>
+            </div>
+            <input type="number" class="form-control" placeholder="2" id="classUnits" name="units">
+            </div>
+
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="classDay">Day</label>
+            </div>
+            <input type="text" class="form-control" placeholder="T-Th" id="classDay" name="day">
+            </div>
+
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="classTime">Time</label>
+            </div>
+            <input type="text" class="form-control" placeholder="1600-1800" id="classTime" name="time">
+            </div>
+
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="classRoom">Room</label>
+            </div>
+            <input type="text" class="form-control" placeholder="TBA" id="classRoom" name="room">
+            </div>
+
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="classProf">Professor</label>
+            </div>
+            <input type="text" class="form-control" placeholder="Genevieve Ngo" id="classProf" name="prof">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+    </div>
     <!-- DO NOT TOUCH THE SCRIPT FILES BELOW THIS LINE -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
