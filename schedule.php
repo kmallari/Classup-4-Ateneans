@@ -47,7 +47,7 @@ include("API/connect.php");
       </div>
     </nav>
 
-    <form id="reg-form" action="API/checkEnrolled.php" method="GET" role="form">
+    <form id="reg-form" action="API/checkEnrolled.php" method="POST" role="form">
     <div class="form-group">
       <label for="id-number">ID Number</label>
       <input type="text" class="form-control" name="ID" placeholder="185134" Required>

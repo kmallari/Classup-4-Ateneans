@@ -1,17 +1,17 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Methods: POST");
 
 include("connect.php");
 
-$id = $_GET['id']; //parameter can be name or abbv
+$id = $_POST['ID']; //parameter can be name or abbv
 
 // ================ MONDAY ==================
 
-$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = $id ORDER BY classes.timeClass WHERE classes.dayClass LIKE '%M%'";
+$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = '$id' AND classes.dayClass LIKE '%M%' ORDER BY classes.timeClass";
 $result = $conn->query($sql);
 
-echo '<p class="h4">Tuesday</p>
+echo '<p class="h4">Monday</p>
 <table class="table">
   <thead>
     <tr>
@@ -32,7 +32,7 @@ if ($result->num_rows > 0)
         // echo "id: ". $row["idEnrolledClasses"] . " –Code, Section, Name, Units, Day, Time, Room, Professor: ". $row["codeClass"] . " ". $row["sectionClass"] . " " . $row["nameClass"] . " " . $row["unitsClass"] . " " . $row["dayClass"] . " " . $row["timeClass"] . " " . $row["roomClass"] . " " . $row["profClass"] . "\n";
 
         echo '<tr>';
-        echo '<td scrope="row">' . $row["timeClass"] . '</td>';
+        echo '<td scope="row">' . $row["timeClass"] . '</td>';
         echo '<td>' . $row["codeClass"] . '</td>';
         echo '<td>' . $row["nameClass"] . '</td>';
         echo '<td>' . $row["sectionClass"] . '</td>';
@@ -52,7 +52,7 @@ echo "</tbody>
 
 // ================ TUESDAY ==================
 
-$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = $id ORDER BY classes.timeClass WHERE classes.dayClass LIKE '%Tu%'";
+$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = '$id' AND classes.dayClass LIKE '%Tu%' ORDER BY classes.timeClass";
 $result = $conn->query($sql);
 
 echo '<p class="h4">Tuesday</p>
@@ -76,7 +76,7 @@ if ($result->num_rows > 0)
         // echo "id: ". $row["idEnrolledClasses"] . " –Code, Section, Name, Units, Day, Time, Room, Professor: ". $row["codeClass"] . " ". $row["sectionClass"] . " " . $row["nameClass"] . " " . $row["unitsClass"] . " " . $row["dayClass"] . " " . $row["timeClass"] . " " . $row["roomClass"] . " " . $row["profClass"] . "\n";
 
         echo '<tr>';
-        echo '<td scrope="row">' . $row["timeClass"] . "</td>";
+        echo '<td scope="row">' . $row["timeClass"] . "</td>";
         echo '<td>' . $row["codeClass"] . "</td>";
         echo '<td>' . $row["nameClass"] . "</td>";
         echo '<td>' . $row["sectionClass"] . "</td>";
@@ -96,7 +96,7 @@ echo "</tbody>
 
 // ================ WEDNESDAY ==================
 
-$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = $id ORDER BY classes.timeClass WHERE classes.dayClass LIKE '%W%'";
+$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = '$id' AND classes.dayClass LIKE '%W%' ORDER BY classes.timeClass";
 $result = $conn->query($sql);
 
 echo '<p class="h4">Wednesday</p>
@@ -120,7 +120,7 @@ if ($result->num_rows > 0)
         // echo "id: ". $row["idEnrolledClasses"] . " –Code, Section, Name, Units, Day, Time, Room, Professor: ". $row["codeClass"] . " ". $row["sectionClass"] . " " . $row["nameClass"] . " " . $row["unitsClass"] . " " . $row["dayClass"] . " " . $row["timeClass"] . " " . $row["roomClass"] . " " . $row["profClass"] . "\n";
 
         echo '<tr>';
-        echo '<td scrope="row">' . $row["timeClass"] . "</td>";
+        echo '<td scope="row">' . $row["timeClass"] . "</td>";
         echo '<td>' . $row["codeClass"] . "</td>";
         echo '<td>' . $row["nameClass"] . "</td>";
         echo '<td>' . $row["sectionClass"] . "</td>";
@@ -140,7 +140,7 @@ echo "</tbody>
 
 // ================ THURSDAY ==================
 
-$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = $id ORDER BY classes.timeClass WHERE classes.dayClass LIKE '%Th%'";
+$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = '$id' AND classes.dayClass LIKE '%Th%' ORDER BY classes.timeClass";
 $result = $conn->query($sql);
 
 echo '<p class="h4">Thursday</p>
@@ -164,7 +164,7 @@ if ($result->num_rows > 0)
         // echo "id: ". $row["idEnrolledClasses"] . " –Code, Section, Name, Units, Day, Time, Room, Professor: ". $row["codeClass"] . " ". $row["sectionClass"] . " " . $row["nameClass"] . " " . $row["unitsClass"] . " " . $row["dayClass"] . " " . $row["timeClass"] . " " . $row["roomClass"] . " " . $row["profClass"] . "\n";
 
         echo '<tr>';
-        echo '<td scrope="row">' . $row["timeClass"] . "</td>";
+        echo '<td scope="row">' . $row["timeClass"] . "</td>";
         echo '<td>' . $row["codeClass"] . "</td>";
         echo '<td>' . $row["nameClass"] . "</td>";
         echo '<td>' . $row["sectionClass"] . "</td>";
@@ -184,7 +184,7 @@ echo "</tbody>
 
 // ================ FRIDAY ==================
 
-$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = $id ORDER BY classes.timeClass WHERE classes.dayClass LIKE '%F%'";
+$sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = '$id' AND classes.dayClass LIKE '%F%' ORDER BY classes.timeClass";
 $result = $conn->query($sql);
 
 echo '<p class="h4">Friday</p>
@@ -208,7 +208,7 @@ if ($result->num_rows > 0)
         // echo "id: ". $row["idEnrolledClasses"] . " –Code, Section, Name, Units, Day, Time, Room, Professor: ". $row["codeClass"] . " ". $row["sectionClass"] . " " . $row["nameClass"] . " " . $row["unitsClass"] . " " . $row["dayClass"] . " " . $row["timeClass"] . " " . $row["roomClass"] . " " . $row["profClass"] . "\n";
 
         echo "<tr>";
-        echo '<td scrope="row">' . $row["timeClass"] . "</td>";
+        echo '<td scope="row">' . $row["timeClass"] . "</td>";
         echo "<td>" . $row["codeClass"] . "</td>";
         echo "<td>" . $row["nameClass"] . "</td>";
         echo "<td>" . $row["sectionClass"] . "</td>";
