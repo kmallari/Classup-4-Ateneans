@@ -5,10 +5,10 @@ header("Access-Control-Allow-Methods: POST");
 
 include("connect.php");
 
-$id = (isset($_GET['id']) ? $_GET['id'] : "");
-$class = (isset($_GET['class']) ? $_GET['class'] : "");
+$id = $_POST['id'];
+$class = $_POST['class'];
 
-$sql = "DELETE FROM enrolledclasses WHERE Student_idStudent = $id AND Classes_idClasses = $class";
+$sql = "DELETE FROM enrolledclasses WHERE Student_idStudent = '$id' AND Classes_idClasses = '$class'";
 
 if($conn->query($sql) == TRUE)
 {
