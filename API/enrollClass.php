@@ -5,8 +5,8 @@ header("Access-Control-Allow-Methods: POST");
 
 include("connect.php");
 
-$id = (isset($_GET['id']) ? $_GET['id'] : "");
-$class = (isset($_GET['class']) ? $_GET['class'] : "");
+$id = $_POST['id'];
+$class = $_POST['class'];
 
 $sql = "INSERT INTO enrolledclasses (Student_idStudent, Classes_idClasses) VALUES ($id, $class)";
 
