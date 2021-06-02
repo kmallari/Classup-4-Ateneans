@@ -56,7 +56,7 @@
               while($row = $result->fetch_assoc())
               {
                 // echo "";
-                echo "<option> 'Hello' </option>";
+                echo "<option>" . $row['codeClass'] . $row['sectionClass'] . "</option>";
               }
             }
             else

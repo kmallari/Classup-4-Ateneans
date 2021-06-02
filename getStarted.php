@@ -46,34 +46,33 @@ include("API/connect.php");
         </div>
       </nav>
 
-
     <div class="p-5">
         <h1 class="display-3">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="classSelect">Class</label>
-          </div>
-          <select class="custom-select" id="classSelect">
-            <option selected>Choose...</option>
-            <?php 
-              $sql = "SELECT * FROM classes";
-              $result = $conn->query($sql);
-              if ($result->num_rows > 0)
-              {
-                while($row = $result->fetch_assoc())
-                {
-                  // echo "";
-                  echo "<option> 'Hello' </option>";
-                }
-              }
-              else
-              {
-                echo "<option value=''>No classes available</option>";
-              }
-            ?>
-          </select>
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="classSelect">Class</label>
         </div>
+        <select class="custom-select" id="classSelect">
+          <option selected>Choose...</option>
+          <?php 
+            $sql = "SELECT * FROM classes";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0)
+            {
+              while($row = $result->fetch_assoc())
+              {
+                // echo "";
+                echo "<option>" . $row['codeClass'] . $row['sectionClass'] . "</option>";
+              }
+            }
+            else
+            {
+              echo "<option value=''>No classes available</option>";
+            }
+          ?>
+        </select>
+      </div>
         <p>Can't find your class in the link? Input it below.</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Get started</a>
     </div>    
