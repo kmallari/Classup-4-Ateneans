@@ -49,13 +49,13 @@ include("API/connect.php");
   <form id="reg-form" action="API/addStudent.php" method="POST" role="form">
     <div class="form-group">
       <label for="id-number">ID Number</label>
-      <input type="text" class="form-control name="ID" placeholder="185134" Required>
+      <input type="text" class="form-control" name="ID" placeholder="185134" Required>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control name="full-name" placeholder="Ignacio de Loyola" Required>
+      <input type="text" class="form-control" name="full-name" placeholder="Ignacio de Loyola" Required>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
   </form>
 
     <!-- DO NOT TOUCH THE SCRIPT FILES BELOW THIS LINE -->

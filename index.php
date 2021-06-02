@@ -41,7 +41,7 @@ include("API/connect.php");
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li> -->
           </ul>
-          <a href="register.php"><button type="button" class="btn btn-light" id="register">Register</button></a>   
+          <a href="register.html"><button type="button" class="btn btn-light" id="register">Register</button></a>   
           <a href="https://canvas.ateneo.edu" class="btn btn-outline-light my-2 my-lg-0" role="button">Go to Canvas</a>
         </div>
       </nav>
