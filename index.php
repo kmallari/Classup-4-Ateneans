@@ -133,7 +133,7 @@ include("API/connect.php");
         }
         else
         {
-          echo "<p>Fill up the section above to check your enrolled classes! </p>";
+          echo "<p>Fill up the section above to check your enrolled classes before unenrolling! </p>";
         }
         ?>
 
