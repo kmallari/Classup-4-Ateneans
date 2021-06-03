@@ -1,25 +1,25 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 
 include("connect.php");
 
-$code = (isset($_GET['code']) ? $_GET['code'] : "");
-$section = (isset($_GET['section']) ? $_GET['section'] : "");
-$name = (isset($_GET['name']) ? $_GET['name'] : "");
-$unit = (isset($_GET['unit']) ? $_GET['unit'] : "");
-$day = (isset($_GET['day']) ? $_GET['day'] : "");
-$time = (isset($_GET['time']) ? $_GET['time'] : "");
-$room = (isset($_GET['room']) ? $_GET['room'] : "");
-$prof = (isset($_GET['prof']) ? $_GET['prof'] : "");
+$code = $_POST['code'];
+$section = $_POST['section'];
+$name = $_POST['name'];
+$unit = $_POST['units'];
+$day = $_POST['day'];
+$time = $_POST['time'];
+$room = $_POST['room'];
+$prof = $_POST['prof'];
 
-$sql = "INSERT INTO classes (codeClass, sectionClass, nameClass, unitsClass, dayClass, timeClass, roomClass, profClass) VALUES ($code, $section, $name, $unit, $day, $time, $room, $prof)";
+$sql = "INSERT INTO classes (codeClass, sectionClass, nameClass, unitsClass, dayClass, timeClass, roomClass, profClass) VALUES ('$code', '$section', '$name', '$unit', '$day', '$time', '$room', '$prof')";
 
 if($conn->query($sql) == TRUE)
 {
     http_response_code(200);
     echo json_encode(array("message" => "Added Class " . $code . " to database"));
+    echo "<p>Redirecting back to home page...</p>";
 }
 else
 {
@@ -30,3 +30,7 @@ else
 $conn->close();
 
 ?>
+
+<head>
+  	<meta http-equiv="refresh" content="5;URL=http://localhost/Classup-4-Ateneans/index.php">
+</head>
