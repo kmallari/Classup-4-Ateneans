@@ -26,16 +26,8 @@ include("API/connect.php");
           <li class="nav-item active">
             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My schedules
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Primary Schedule</a>
-              <a class="dropdown-item" href="#">Seconday Schedule</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">View all schedules</a>
-            </div>
+          <li class="nav-item active">
+            <a class="nav-link" href="schedule.php">Schedules <span class="sr-only">(current)</span></a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
