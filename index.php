@@ -52,7 +52,8 @@ include("API/connect.php");
         style=
           "background-image: url('');
           height: 100vh;"
-        <h1 class="display-4">Get Started here!</h1>
+      >
+        <h1 class="display-3">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
 
         <form action="API/enrollClass.php" method="POST" role="form" class="form-group">
@@ -136,7 +137,7 @@ include("API/connect.php");
         }
         ?>
 
-        <h1 class="display-3">Can't find your class?</h1>
+        <h3>Can't find your class?</h3>
         <p><small>Edi ADMU...</small></p>
         <p>Click the button below!</p>
         <a class="btn btn-primary btn-lg" href="createclass.php" role="button">Add New Class</a>
