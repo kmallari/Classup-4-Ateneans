@@ -2,12 +2,11 @@
 
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Methods: POST");
 include("API/connect.php");
 ?>
 
 <head>
-    <?php include("API/connect.php"); ?> <!-- might remove or relocate-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,6 +49,7 @@ include("API/connect.php");
     <div class="p-5">
         <h1 class="display-3">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
+
         <form action="API/enrollClass.php" method="POST" role="form" class="form-group">
         <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -79,8 +79,61 @@ include("API/connect.php");
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <p>Can't find your class in the link? Input it below.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Get started</a>
+
+        <h1 class="display-3">Check your enrolled classes!</h1>
+        <form action="index.php" method="POST" role="form" class="form-group">
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Student Number" aria-label="Student Number" name="id">
+        </div>
+        <button type="Check" class="btn btn-primary" name="check">Check</button>
+        </form>
+
+        <h1 class="display-3">Unenroll classes below!</h1>
+        <?php
+        if(isset($_POST['check']))
+        {
+          $id = $_POST['id'];
+          echo '<form action="API/unenrollClass.php" method="POST" role="form" class="form-group">';
+          echo '<div class="input-group mb-3">';
+          echo '<div class="input-group-prepend">';
+          echo '<label class="input-group-text" for="studentID">Student Number</label>';
+          echo '</div>';
+          echo '<input class="form-control" type="text" id="studentID" value="' . $id . '" name="id" readonly>';
+          echo '</div>';
+          echo '<div class="input-group mb-3">';
+          echo '<div class="input-group-prepend">';
+          echo '<label class="input-group-text" for="classSelect">Class</label>';
+          echo '</div>';
+          echo '<select class="custom-select" id="classSelect" name="class">';
+          echo '<option selected>Choose...</option>';
+          $sql = "SELECT * FROM enrolledclasses JOIN classes ON enrolledclasses.Classes_idClasses = classes.idClasses WHERE Student_idStudent = $id";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0)
+          {
+            while($row = $result->fetch_assoc())
+            {
+              echo '<option value="' . $row["idClasses"] . '">' . $row['codeClass'] . $row['sectionClass'] . '</option>';
+            }
+          }
+          else
+          {
+            echo "<option value=''>No classes available</option>";
+          }
+
+          echo "</select>";
+          echo "</div>";
+          echo '<button type="Unenroll" class="btn btn-primary" name="Unenroll">Unenroll</button>';
+          echo "</form>";
+        }
+        else
+        {
+          echo "<p>Fill up the section above to check your enrolled classes! </p>";
+        }
+        ?>
+
+        <h1 class="display-3">Can't find your class?</h1>
+        <p>Click the button below!</p>
+        <a class="btn btn-primary btn-lg" href="createclass.php" role="button">Add New Class</a>
     </div>    
 
     <!-- DO NOT TOUCH THE SCRIPT FILES BELOW THIS LINE -->
