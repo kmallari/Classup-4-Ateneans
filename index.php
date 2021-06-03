@@ -138,8 +138,8 @@ include("API/connect.php");
         ?>
 
         <h3>Can't find your class?</h3>
-        <p><small>Edi ADMU...</small></p>
-        <p>Click the button below!</p>
+        <p><small>Edi ADMU...</small><br>
+        Click the button below!</p>
         <a class="btn btn-primary btn-lg" href="createclass.php" role="button">Add New Class</a>
       </div>
     </div>    
