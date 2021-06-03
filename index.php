@@ -47,7 +47,12 @@ include("API/connect.php");
     </nav>
 
     <div class="p-5">
-        <h1 class="display-3">Get Started here!</h1>
+      <div 
+        class="bg-image"
+        style=
+          "background-image: url('');
+          height: 100vh;"
+        <h1 class="display-4">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
 
         <form action="API/enrollClass.php" method="POST" role="form" class="form-group">
@@ -80,7 +85,7 @@ include("API/connect.php");
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-        <h1 class="display-3">Check your enrolled classes!</h1>
+        <h3>Check your enrolled classes!</h3>
         <form action="index.php" method="POST" role="form" class="form-group">
         <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Student Number" aria-label="Student Number" name="id">
@@ -88,7 +93,7 @@ include("API/connect.php");
         <button type="Check" class="btn btn-primary" name="check">Check</button>
         </form>
 
-        <h1 class="display-3">Unenroll classes below!</h1>
+        <h3>Unenroll classes below!</h3>
         <?php
         if(isset($_POST['check']))
         {
@@ -132,8 +137,10 @@ include("API/connect.php");
         ?>
 
         <h1 class="display-3">Can't find your class?</h1>
+        <p><small>Edi ADMU...</small></p>
         <p>Click the button below!</p>
         <a class="btn btn-primary btn-lg" href="createclass.php" role="button">Add New Class</a>
+      </div>
     </div>    
 
     <!-- DO NOT TOUCH THE SCRIPT FILES BELOW THIS LINE -->
