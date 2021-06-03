@@ -45,14 +45,14 @@ include("API/connect.php");
         <a href="https://canvas.ateneo.edu" class="btn btn-outline-light my-2 my-lg-0" role="button">Go to Canvas</a>
       </div>
     </nav>
-
-    <div class="p-5">
-      <div 
+<div 
         class="bg-image"
         style=
-          "background-image: url('');
-          height: 100vh;"
+          "background-image: url('WhiteGesu.jpg');
+          height: 100vx;"
       >
+    <div class="p-5">
+      
         <h1 class="display-3">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
 
@@ -141,8 +141,8 @@ include("API/connect.php");
         <p><small>Edi ADMU...</small><br>
         Click the button below!</p>
         <a class="btn btn-primary btn-lg" href="createclass.php" role="button">Add New Class</a>
-      </div>
-    </div>    
+    </div>   
+    </div> 
 
     <!-- DO NOT TOUCH THE SCRIPT FILES BELOW THIS LINE -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
