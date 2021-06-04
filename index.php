@@ -41,7 +41,7 @@ include("API/connect.php");
         class="bg-image"
         style=
           "background-image: url('WhiteGesu.jpg');
-          height: 100vx;"
+          height: 100vh;"
       >
     <div class="p-5">
       
