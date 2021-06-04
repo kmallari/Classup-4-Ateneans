@@ -12,6 +12,6 @@ if ($conn->connect_error)
 }
 else
 {
-    echo "Connection Success!\n";
+    //echo "Connection Success!\n";
 }
 ?>
