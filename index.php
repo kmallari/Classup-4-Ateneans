@@ -37,8 +37,14 @@ include("API/connect.php");
         <a href="https://canvas.ateneo.edu" class="btn btn-outline-light my-2 my-lg-0" role="button">Go to Canvas</a>
       </div>
     </nav>
-
+<div 
+        class="bg-image"
+        style=
+          "background-image: url('WhiteGesu.jpg');
+          height: 100vx;"
+      >
     <div class="p-5">
+      
         <h1 class="display-3">Get Started here!</h1>
         <p class="lead">This website application will allow you to easily track your enrolled classes. Select your enrolled class from the dropdown menu below.</p>
 
@@ -72,7 +78,7 @@ include("API/connect.php");
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-        <h1 class="display-3">Check your enrolled classes!</h1>
+        <h3>Check your enrolled classes!</h3>
         <form action="index.php" method="POST" role="form" class="form-group">
         <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Student Number" aria-label="Student Number" name="id">
@@ -80,7 +86,7 @@ include("API/connect.php");
         <button type="Check" class="btn btn-primary" name="check">Check</button>
         </form>
 
-        <h1 class="display-3">Unenroll classes below!</h1>
+        <h3>Unenroll classes below!</h3>
         <?php
         if(isset($_POST['check']))
         {
@@ -119,14 +125,16 @@ include("API/connect.php");
         }
         else
         {
-          echo "<p>Fill up the section above to check your enrolled classes! </p>";
+          echo "<p>Fill up the section above to check your enrolled classes before unenrolling! </p>";
         }
         ?>
 
-        <h1 class="display-3">Can't find your class?</h1>
-        <p>Click the button below!</p>
+        <h3>Can't find your class?</h3>
+        <p><small>Edi ADMU...</small><br>
+        Click the button below!</p>
         <a class="btn btn-primary btn-lg" href="createclass.php" role="button">Add New Class</a>
-    </div>    
+    </div>   
+    </div> 
 
     <!-- DO NOT TOUCH THE SCRIPT FILES BELOW THIS LINE -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
